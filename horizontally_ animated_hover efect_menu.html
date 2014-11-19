@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <meta charset="UTF-8">
+  <title>animacja</title>
+  <style>
+    * {margin:0; padding:0;}
+    html {
+      /*background from:http://lea.verou.me/css3patterns/#carbon */
+      background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+      background-color: #131313;
+      background-size: 20px 20px;
+    }
+    body {
+      width:800px;
+      margin:0 auto;
+      margin-top:50px;
+    }
+    ul {
+      border-radius:5px;
+      background:-moz-linear-gradient(top, #111, black);
+      border-radius:2px;list-style:none;display:inline-block;
+    }
+    li {
+      display:inline;
+    }
+    a {
+      display:inline-block;
+      padding:10px;
+      color:#ccc;
+      text-decoration:none;
+      font:normal 16px Arial;
+      position:relative;
+    }
+    a:after {
+      content:' ';
+      display:block;
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:0;
+      margin-left:50%;
+      height:2px;
+      background:#33d;
+      -moz-transition:all 0.9s linear;
+    }
+    a:hover:after {
+      width:100%;
+      margin:0;
+    }
+  </style>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Very long element</a></li>
+    </ul>
+  </nav>
+</html>
