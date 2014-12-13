@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <meta charset="UTF-8">
+  <title>Scrolled menu efect</title>
+  <style>
+    * {margin:0; padding:0;}
+    html {
+      /*background from:http://lea.verou.me/css3patterns/#carbon */
+      background:
+        linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+        linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+        linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+        linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+        linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+        linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
+      background-color: #131313;
+      background-size: 20px 20px;
+    }
+    body {
+      width:800px;
+      margin:0 auto;
+      margin-top:50px;
+	  overflow:hidden;
+	position:relative;
+    }
+	h1, h2 {color:white;}
+    ul {
+		list-style:none;
+		font-size:0; /* it's not a bug, it's future */
+	}
+	li {display:inline;}
+	a {
+		font-size:14px;
+		display:inline-block;
+		padding:5px 10px;
+		text-decoration:none;
+		color:rgba(0,0,0,0);
+	
+	overflow:hidden;
+	position:relative;	
+	}
+	.v1 a {
+		background-image: -moz-linear-gradient(top, #aaa 50%, green 50%);
+		background-image: -webkit-linear-gradient(top, #ccc 50%, black 50%); 
+		background-image: -ms-linear-gradient(top, #ccc 50%, black 50%); 	
+		background-image: linear-gradient(top, rgb(153, 200, 153) 50%, green 50%); 		
+		background-position: 0 0px;
+		background-size:100% 200%;
+		
+		transition:all 1s linear;
+	}
+	.v1 a:hover {
+		background-position:0 -100%;
+	}
+	.v2 a {
+		background-image: -moz-linear-gradient(top, #aaa 50%, green 50%);
+		background-image: -webkit-linear-gradient(top, #ccc 50%, black 50%); 
+		background-image: -ms-linear-gradient(top, #ccc 50%, black 50%); 	
+		background-image: linear-gradient(top, rgb(153, 200, 153) 50%, green 50%); 		
+		background-position: 0 0;
+		background-size:100% 200%;
+		
+		transition:all 1s linear;
+	}
+	.v2 a:hover {
+		background-position:0 100%;
+	}
+	.v3 a {
+		background-image: -moz-linear-gradient(left, #aaa 50%, green 50%);
+		background-image: -webkit-linear-gradient(left, #ccc 50%, black 50%); 
+		background-image: -ms-linear-gradient(left, #ccc 50%, black 50%); 	
+		background-image: linear-gradient(left, rgb(153, 200, 153) 50%, green 50%); 		
+		background-position: 0 0px;
+		background-size:200% 100%;
+		
+		transition:all 1s linear;
+	}
+	.v3 a:hover {
+		background-position:-100% 0;
+	}
+	.v4 a {
+		background-image: -moz-linear-gradient(left, #aaa 50%, green 50%);
+		background-image: -webkit-linear-gradient(left, #ccc 50%, black 50%); 
+		background-image: -ms-linear-gradient(left, #ccc 50%, black 50%); 	
+		background-image: linear-gradient(left, rgb(153, 200, 153) 50%, green 50%); 		
+		background-position: 0 0px;
+		background-size:200% 100%;
+		
+		transition:all 1s linear;
+	}
+	.v4 a:hover {
+		background-position:100% 0;
+	}
+	.v5 a {
+		background-image: -moz-linear-gradient(#aaa 50%, green 50%);
+		background-image: -webkit-linear-gradient(#ccc 50%, black 50%); 
+		background-image: -ms-linear-gradient(#ccc 50%, black 50%); 	
+		background-image: linear-gradient(white 50%, green 50%); 		
+		background-position: 100% 100%;
+		background-size:200% 200%;
+		
+		transition:all 1s linear;
+	
+	}
+	.v1 a:after, .v1 a:before {content:attr(data-content);position:absolute;color:black;transition:all 1s linear;left:10px;}
+	.v1 a:after {bottom:30px;}
+	.v1 a:before {top:5px;}
+	.v1 a:hover:after {bottom:5px;}
+	.v1 a:hover:before {top:30px;}
+	
+	.v2 a:after, .v2 a:before {content:attr(data-content);position:absolute;color:black;transition:all 1s linear;left:10px;}
+	.v2 a:after {top:30px;}
+	.v2 a:before {bottom:5px;}
+	.v2 a:hover:after {top:5px;}
+	.v2 a:hover:before {bottom:30px;}
+	
+	.v3 a:after, .v3 a:before {content:attr(data-content);position:absolute;color:black;transition:all 1s linear;top:5px;}
+	.v3 a:after {left:5px;}
+	.v3 a:before {left:-100%;}
+	.v3 a:hover:after {left:100%;}
+	.v3 a:hover:before {left:5px;}
+	
+	.v4 a:after, .v4 a:before {content:attr(data-content);position:absolute;color:black;transition:all 1s linear;top:5px;}
+	.v4 a:after {right:5px;}
+	.v4 a:before {right:-100%;}
+	.v4 a:hover:after {right:100%;}
+	.v4 a:hover:before {right:5px;}
+  </style>
+  <h1>Scrolled  menu efect</h1>
+  <h2>To bottom</h2>
+  <nav class="v1">
+      <ul>
+      <li><a href="#" data-content="Home">Home</a></li>
+      <li><a href="#" data-content="About">About</a></li>
+      <li><a href="#" data-content="Blog">Blog</a></li>
+      <li><a href="#" data-content="Contact">Contact</a></li>
+      <li><a href="#" data-content="Very long element">Very long element</a></li>
+    </ul>
+  </nav>
+  <h2>To top</h2>
+  <nav class="v2">
+     <ul>
+      <li><a href="#" data-content="Home">Home</a></li>
+      <li><a href="#" data-content="About">About</a></li>
+      <li><a href="#" data-content="Blog">Blog</a></li>
+      <li><a href="#" data-content="Contact">Contact</a></li>
+      <li><a href="#" data-content="Very long element">Very long element</a></li>
+    </ul>
+  </nav>
+  <h2>To right</h2>
+  <nav class="v3">
+    <ul>
+      <ul>
+      <li><a href="#" data-content="Home">Home</a></li>
+      <li><a href="#" data-content="About">About</a></li>
+      <li><a href="#" data-content="Blog">Blog</a></li>
+      <li><a href="#" data-content="Contact">Contact</a></li>
+      <li><a href="#" data-content="Very long element">Very long element</a></li>
+    </ul>
+  </nav>
+  <h2>To left</h2>
+  <nav class="v4">
+      <ul>
+      <li><a href="#" data-content="Home">Home</a></li>
+      <li><a href="#" data-content="About">About</a></li>
+      <li><a href="#" data-content="Blog">Blog</a></li>
+      <li><a href="#" data-content="Contact">Contact</a></li>
+      <li><a href="#" data-content="Very long element">Very long element</a></li>
+    </ul>
+  </nav>
+
+    
+    <script src="https://raw.github.com/LeaVerou/prefixfree/gh-pages/prefixfree.min.js"></script>
+</html>
